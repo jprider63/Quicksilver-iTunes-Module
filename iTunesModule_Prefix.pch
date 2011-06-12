@@ -1,0 +1,13 @@
+//
+// Prefix header for all source files of the 'iTunesModule' target in the 'iTunesModule' project
+//
+
+#ifdef __OBJC__
+#import <Cocoa/Cocoa.h>
+#import <QSFoundation/QSFoundation.h>
+#import <QSCore/QSCore.h>
+#endif
+
+#if 0
+#define kiTunesModuleType @"iTunesModuleType"
+#endif

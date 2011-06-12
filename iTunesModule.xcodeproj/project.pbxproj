@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1AA5C68613A3B86E000F42C1 /* iTunesParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AA5C68513A3B86E000F42C1 /* iTunesParserDelegate.m */; };
+		1AC53F6A139C052C00D102E0 /* QSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC53F66139C052C00D102E0 /* QSCore.framework */; };
+		1AC53F6B139C052C00D102E0 /* QSEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC53F67139C052C00D102E0 /* QSEffects.framework */; };
+		1AC53F6C139C052C00D102E0 /* QSFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC53F68139C052C00D102E0 /* QSFoundation.framework */; };
+		1AC53F6D139C052C00D102E0 /* QSInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC53F69139C052C00D102E0 /* QSInterface.framework */; };
+		1AFFC28213A075CC0077FCC1 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFFC28113A075CC0077FCC1 /* ScriptingBridge.framework */; };
+		8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD92D38A0106425D02CA0E72 /* Cocoa.framework */; };
+		BBF5817C0B1D9D84003CFF55 /* iTunesModuleAction.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF5817B0B1D9D84003CFF55 /* iTunesModuleAction.m */; };
+		BBF581840B1D9DC3003CFF55 /* iTunesModuleSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF581830B1D9DC3003CFF55 /* iTunesModuleSource.m */; };
+		E1EAB046068128A200774DFF /* iTunesModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EAB045068128A200774DFF /* iTunesModule.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1AA5C68413A3B86D000F42C1 /* iTunesParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesParserDelegate.h; sourceTree = "<group>"; };
+		1AA5C68513A3B86E000F42C1 /* iTunesParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesParserDelegate.m; sourceTree = "<group>"; };
+		1AC53F66139C052C00D102E0 /* QSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSCore.framework; sourceTree = "<group>"; };
+		1AC53F67139C052C00D102E0 /* QSEffects.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSEffects.framework; sourceTree = "<group>"; };
+		1AC53F68139C052C00D102E0 /* QSFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSFoundation.framework; sourceTree = "<group>"; };
+		1AC53F69139C052C00D102E0 /* QSInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QSInterface.framework; sourceTree = "<group>"; };
+		1AFFC28013A0749B0077FCC1 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		1AFFC28113A075CC0077FCC1 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = ../../../../../../System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<group>"; };
+		32DBCF980370C29C00C91783 /* iTunesModule_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesModule_Prefix.pch; sourceTree = "<group>"; };
+		8D1AC9730486D14A00FE50C9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D1AC9740486D14A00FE50C9 /* iTunesModule.qsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesModule.qsplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBF5817A0B1D9D84003CFF55 /* iTunesModuleAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesModuleAction.h; sourceTree = "<group>"; };
+		BBF5817B0B1D9D84003CFF55 /* iTunesModuleAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesModuleAction.m; sourceTree = "<group>"; };
+		BBF581820B1D9DC3003CFF55 /* iTunesModuleSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesModuleSource.h; sourceTree = "<group>"; };
+		BBF581830B1D9DC3003CFF55 /* iTunesModuleSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesModuleSource.m; sourceTree = "<group>"; };
+		DD92D38A0106425D02CA0E72 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		E1EAB045068128A200774DFF /* iTunesModule.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = iTunesModule.m; sourceTree = "<group>"; };
+		E1EAB047068128A800774DFF /* iTunesModule.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = iTunesModule.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D1AC96E0486D14A00FE50C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */,
+				1AC53F6A139C052C00D102E0 /* QSCore.framework in Frameworks */,
+				1AC53F6B139C052C00D102E0 /* QSEffects.framework in Frameworks */,
+				1AC53F6C139C052C00D102E0 /* QSFoundation.framework in Frameworks */,
+				1AC53F6D139C052C00D102E0 /* QSInterface.framework in Frameworks */,
+				1AFFC28213A075CC0077FCC1 /* ScriptingBridge.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0259C574FE90428111CA0C5A /* iTunesModule */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF9E0370C38000C91783 /* Classes */,
+				32DBCF9F0370C38200C91783 /* Other Sources */,
+				0259C582FE90428111CA0C5A /* Resources */,
+				1ED78706FE9D4A0611CA0C5A /* Products */,
+				2E58F364FFB232C311CA0CBA /* Frameworks */,
+			);
+			name = iTunesModule;
+			sourceTree = "<group>";
+		};
+		0259C582FE90428111CA0C5A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1AC9730486D14A00FE50C9 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1ED78706FE9D4A0611CA0C5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1AC9740486D14A00FE50C9 /* iTunesModule.qsplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E58F364FFB232C311CA0CBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AFFC28113A075CC0077FCC1 /* ScriptingBridge.framework */,
+				1AC53F66139C052C00D102E0 /* QSCore.framework */,
+				1AC53F67139C052C00D102E0 /* QSEffects.framework */,
+				1AC53F68139C052C00D102E0 /* QSFoundation.framework */,
+				1AC53F69139C052C00D102E0 /* QSInterface.framework */,
+				DD92D38A0106425D02CA0E72 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32DBCF9E0370C38000C91783 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1AFFC28013A0749B0077FCC1 /* iTunes.h */,
+				BBF5817A0B1D9D84003CFF55 /* iTunesModuleAction.h */,
+				BBF5817B0B1D9D84003CFF55 /* iTunesModuleAction.m */,
+				E1EAB047068128A800774DFF /* iTunesModule.h */,
+				E1EAB045068128A200774DFF /* iTunesModule.m */,
+				BBF581820B1D9DC3003CFF55 /* iTunesModuleSource.h */,
+				BBF581830B1D9DC3003CFF55 /* iTunesModuleSource.m */,
+				1AA5C68413A3B86D000F42C1 /* iTunesParserDelegate.h */,
+				1AA5C68513A3B86E000F42C1 /* iTunesParserDelegate.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32DBCF9F0370C38200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF980370C29C00C91783 /* iTunesModule_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1AC9600486D14A00FE50C9 /* iTunesModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F6B3EEB085CE8DF000735A8 /* Build configuration list for PBXNativeTarget "iTunesModule" */;
+			buildPhases = (
+				8D1AC9660486D14A00FE50C9 /* Resources */,
+				8D1AC96A0486D14A00FE50C9 /* Sources */,
+				8D1AC96E0486D14A00FE50C9 /* Frameworks */,
+				E1022B2806B3475D00299BEC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iTunesModule;
+			productInstallPath = "$(HOME)/Developer/Palettes";
+			productName = iTunesModule;
+			productReference = 8D1AC9740486D14A00FE50C9 /* iTunesModule.qsplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0259C573FE90428111CA0C5A /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 7F6B3EEF085CE8DF000735A8 /* Build configuration list for PBXProject "iTunesModule" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0259C574FE90428111CA0C5A /* iTunesModule */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1AC9600486D14A00FE50C9 /* iTunesModule */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1AC9660486D14A00FE50C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E1022B2806B3475D00299BEC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/bltrversion $INFOPLIST_FILE";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D1AC96A0486D14A00FE50C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1EAB046068128A200774DFF /* iTunesModule.m in Sources */,
+				BBF5817C0B1D9D84003CFF55 /* iTunesModuleAction.m in Sources */,
+				BBF581840B1D9DC3003CFF55 /* iTunesModuleSource.m in Sources */,
+				1AA5C68613A3B86E000F42C1 /* iTunesParserDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7F6B3EEC085CE8DF000735A8 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(QSFrameworks)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iTunesModule_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = "-bundle";
+				PRODUCT_NAME = iTunesModule;
+				SDKROOT = "";
+				WRAPPER_EXTENSION = qsplugin;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		7F6B3EED085CE8DF000735A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(QSFrameworks)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)\"";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iTunesModule_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = "-bundle";
+				PRODUCT_NAME = iTunesModule;
+				SDKROOT = "";
+				WRAPPER_EXTENSION = qsplugin;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		7F6B3EF0085CE8DF000735A8 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Development;
+		};
+		7F6B3EF1085CE8DF000735A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_MODEL_TUNING = G5;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7F6B3EEB085CE8DF000735A8 /* Build configuration list for PBXNativeTarget "iTunesModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F6B3EEC085CE8DF000735A8 /* Development */,
+				7F6B3EED085CE8DF000735A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F6B3EEF085CE8DF000735A8 /* Build configuration list for PBXProject "iTunesModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F6B3EF0085CE8DF000735A8 /* Development */,
+				7F6B3EF1085CE8DF000735A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0259C573FE90428111CA0C5A /* Project object */;
+}
