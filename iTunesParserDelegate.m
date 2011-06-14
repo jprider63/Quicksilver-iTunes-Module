@@ -54,7 +54,7 @@
 // Assumes "Track ID" always comes first.
 -(void) startParseTrack:(NSString *) name attributes:(NSDictionary *) attributes {
     if ( [ name isEqualToString:@"Track ID" ]) {
-        currentObject = [[ NSDictionary alloc ] initWithObjectsAndKeys:@"Track ID", , nil ];//
+        //currentObject = [[ NSDictionary alloc ] initWithObjectsAndKeys:@"Track ID", , nil ];//
     }
 }
 

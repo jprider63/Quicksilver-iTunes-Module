@@ -66,7 +66,6 @@
 			<string>rateSong:</string>
 			<key>directTypes</key>
 			<array>
-				<string>NSStringPboardType</string>
 				<string>iTunesModuleSong</string>
 			</array>
 			<key>indirectOptional</key>
@@ -74,6 +73,7 @@
 			<key>indirectTypes</key>
 			<array>
 				<string>iTunesModuleRating</string>
+				<string>NSStringPboardType</string>
 			</array>
 			<key>name</key>
 			<string>Rate Song</string>
@@ -102,24 +102,139 @@
 	<key>QSPresetAdditions</key>
 	<array>
 		<dict>
+			<key>children</key>
+			<array>
+				<dict>
+					<key>iTunes item</key>
+					<true/>
+					<key>enabled</key>
+					<true/>
+					<key>ID</key>
+					<string>iTunesModulePlaylist</string>
+					<key>name</key>
+					<string>Songs</string>
+					<key>source</key>
+					<string>iTunesModuleSource</string>
+				</dict>
+				<dict>
+					<key>iTunes item</key>
+					<true/>
+					<key>enabled</key>
+					<true/>
+					<key>ID</key>
+					<string>iTunesModuleArtist</string>
+					<key>name</key>
+					<string>Artists</string>
+					<key>source</key>
+					<string>iTunesModuleSource</string>
+				</dict>
+				<dict>
+					<key>iTunes item</key>
+					<true/>
+					<key>enabled</key>
+					<true/>
+					<key>ID</key>
+					<string>iTunesModuleAlbum</string>
+					<key>name</key>
+					<string>Albums</string>
+					<key>source</key>
+					<string>iTunesModuleSource</string>
+				</dict>
+				<dict>
+					<key>iTunes item</key>
+					<true/>
+					<key>enabled</key>
+					<false/>
+					<key>ID</key>
+					<string>iTunesModuleGenre</string>
+					<key>name</key>
+					<string>Genres</string>
+					<key>source</key>
+					<string>iTunesModuleSource</string>
+				</dict>
+				<dict>
+					<key>iTunes item</key>
+					<true/>
+					<key>enabled</key>
+					<true/>
+					<key>ID</key>
+					<string>iTunesModulePlaylist</string>
+					<key>name</key>
+					<string>Playlists</string>
+					<key>source</key>
+					<string>iTunesModuleSource</string>
+				</dict>
+				<dict>
+					<key>iTunes item</key>
+					<true/>
+					<key>enabled</key>
+					<true/>
+					<key>ID</key>
+					<string>iTunesModuleRating</string>
+					<key>name</key>
+					<string>Ratings</string>
+					<key>source</key>
+					<string>iTunesModuleSource</string>
+				</dict>
+			</array>
+			<key>enabled</key>
+			<true/>
+			<key>icon</key>
+			<string>com.apple.iTunes</string>
 			<key>ID</key>
-			<string>iTunesModulePlaylist</string>
+			<string>QSPresetITunesGroup</string>
 			<key>name</key>
-			<string>iTunes Library</string>
+			<string>iTunes</string>
 			<key>source</key>
-			<string>iTunesModuleSource</string>
-		</dict>
-		<dict>
-			<key>ID</key>
-			<string>iTunesModuleRating</string>
-			<key>name</key>
-			<string>Ratings</string>
-			<key>source</key>
-			<string>iTunesModuleSource</string>
+			<string>QSGroupObjectSource</string>
 		</dict>
 	</array>
 	<key>QSRegistration</key>
 	<dict>
+		<key>QSActionProviders</key>
+		<dict>
+			<key>iTunesModuleAction</key>
+			<string>iTunesModuleAction</string>
+		</dict>
+		<key>QSBundleChildHandlers</key>
+		<dict>
+			<key>com.blacktree.Quicksilver.iTunesModule</key>
+			<string>iTunesModuleSource</string>
+		</dict>
+		<key>QSObjectHandlers</key>
+		<dict>
+			<key>iTunesModuleAlbum</key>
+			<string>iTunesModuleSource</string>
+			<key>iTunesModuleArtist</key>
+			<string>iTunesModuleSource</string>
+			<key>iTunesModuleGenre</key>
+			<string>iTunesModuleSource</string>
+			<key>iTunesModulePlaylist</key>
+			<string>iTunesModuleSource</string>
+			<key>iTunesModuleRating</key>
+			<string>iTunesModuleSource</string>
+			<key>iTunesModuleSong</key>
+			<string>iTunesModuleSource</string>
+		</dict>
+		<key>QSObjectSources</key>
+		<dict>
+			<key>iTunesModuleSource</key>
+			<string>iTunesModuleSource</string>
+		</dict>
+		<key>QSPreferencePanesTemplate</key>
+		<dict>
+			<key>iTunesModule_PrefPane</key>
+			<dict>
+				<key>class</key>
+				<string>QSPreferencePane</string>
+				<key>description</key>
+				<string>Preferences</string>
+				<key>icon</key>
+				<string></string>
+				<key>name</key>
+				<string>iTunesModule</string>
+			</dict>
+		</dict>
 		<key>QSTypeDefinitions</key>
 		<dict>
 			<key>iTunesModuleRating</key>
@@ -135,50 +250,6 @@
 				<string>DefaultBookmarkIcon</string>
 				<key>name</key>
 				<string>iTunes Songs</string>
-			</dict>
-		</dict>
-		<key>QSActionProviders</key>
-		<dict>
-			<key>iTunesModuleAction</key>
-			<string>iTunesModuleAction</string>
-		</dict>
-		<key>QSBundleChildHandlers</key>
-		<dict>
-			<key>com.blacktree.Quicksilver.iTunesModule</key>
-			<string>iTunesModuleSource</string>
-		</dict>
-		<key>QSObjectHandlers</key>
-		<dict>
-			<key>iTunesModuleSong</key>
-			<string>iTunesModuleSource</string>
-			<key>iTunesModuleRating</key>
-			<string>iTunesModuleSource</string>
-			<key>iTunesModuleArtist</key>
-			<string>iTunesModuleSource</string>
-			<key>iTunesModuleAlbum</key>
-			<string>iTunesModuleSource</string>
-			<key>iTunesModuleGenre</key>
-			<string>iTunesModuleSource</string>
-			<key>iTunesModulePlaylist</key>
-			<string>iTunesModuleSource</string>
-		</dict>
-		<key>QSObjectSources</key>
-		<dict>
-			<key>iTunesModuleSource</key>
-			<string>iTunesModuleSource</string>
-		</dict>
-		<key>QSPreferencePanes</key>
-		<dict>
-			<key>iTunesModule_PrefPane</key>
-			<dict>
-				<key>class</key>
-				<string>QSPreferencePane</string>
-				<key>description</key>
-				<string>Preferences</string>
-				<key>icon</key>
-				<string></string>
-				<key>name</key>
-				<string>iTunesModule</string>
 			</dict>
 		</dict>
 	</dict>

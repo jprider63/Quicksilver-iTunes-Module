@@ -20,6 +20,10 @@
     
     QSObject *object = [ QSObject objectWithName:@"5 Stars" ];
     [ object setObject:[ NSNumber numberWithInt:5 ] forType:iTunesModuleRating ];
+    //[ object setEnabled ];??
+    //[[ QSLibrarian sharedInstance ] setItem:object isOmitted:YES ];
+    
+    
     // set identifier?
     // [ object setIcon:[ QSResourceManager imageNamed:@"" ]];
     [ objects addObject:object ];
@@ -51,8 +55,8 @@
     return objects;
 }
 
-// Load iTunes library objects. Referenced "https://github.com/quicksilver/Plugins/blob/master/DeliciousLibrary/QSDeliciousLibraryModule_Source.m".
--(NSArray *) iTunesLibraryWithLocation:(NSString *) location {
+// Load iTunes songs. Referenced "https://github.com/quicksilver/Plugins/blob/master/DeliciousLibrary/QSDeliciousLibraryModule_Source.m".
+-(NSArray *) iTunesSongsWithLocation:(NSString *) location {
     //detach thread?
     
     // Parse iTunes library xml file.
@@ -74,22 +78,21 @@
     NSDictionary *library = [ NSDictionary dictionaryWithContentsOfFile:location ];
     NSMutableArray *objects = [ NSMutableArray arrayWithCapacity:100 ];
 
-    for ( NSDictionary *tracks in [ library objectForKey:@"Tracks" ]) {
-        for ( NSDictionary *track in tracks) {
-            NSDictionary *newTrack = [ NSDictionary dictionaryWithObjectsAndKeys:
-                                      [ track objectForKey:@"Name" ], @"Name",
-                                      [ track objectForKey:@"Track ID" ], @"Track ID",
-                                      [ track objectForKey:@"Artist" ], @"Artist",
-                                      [ track objectForKey:@"Genre" ], @"Genre",
-                                      // file location
-                                      nil ];
-            QSObject *object = [ QSObject objectWithName:[ track objectForKey:@"Name" ]];
-            [ object setObject:newTrack forType:iTunesModuleSong ];
-            // set text, url type?
-            [ object setIdentifier:[ iTunesModuleSong stringByAppendingFormat:@"%d", [ track objectForKey:@"Track ID" ]]];
-            
-            [ objects addObject:object ];
-        }
+    for ( NSDictionary *track in [[ library objectForKey:@"Tracks" ] allValues ]) {
+	    NSDictionary *newTrack = [ NSDictionary dictionaryWithObjectsAndKeys:
+		    [ track objectForKey:@"Name" ], @"Name",
+		    [ track objectForKey:@"Track ID" ], @"Track ID",
+		    [ track objectForKey:@"Artist" ], @"Artist",
+		    [ track objectForKey:@"Genre" ], @"Genre",
+		    // file location
+		    nil ];
+	    QSObject *object = [ QSObject objectWithName:[ track objectForKey:@"Name" ]];
+	    [ object setObject:newTrack forType:iTunesModuleSong ];
+        [ object setDetails: [ track objectForKey:@"Artist" ]];
+	    // set text, url type?
+	    [ object setIdentifier:[ iTunesModuleSong stringByAppendingFormat:@"%d", [ track objectForKey:@"Track ID" ]]];
+
+	    [ objects addObject:object ];
     }
     
     // add current song proxy
@@ -98,10 +101,14 @@
 
 // Get iTunes library location.
 -(NSString *) iTunesLibraryLocation  {
-    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    /*NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
     [ defaults addSuiteNamed:@"com.apple.iTunes" ];
-    NSString *location = [[ defaults objectForKey:@"NSNavLastRootDirectory" ] stringByAppendingString:@"iTunes Music Library.xml" ];
+    NSString *location = [[ defaults stringForKey:@"NSNavLastRootDirectory" ] stringByAppendingString:@"/iTunes Music Library.xml" ];
     [ defaults removeSuiteNamed:@"com.apple.iTunes" ];
+    */
+
+    //for now:
+    NSString *location = @"/users/james/Music/iTunes/iTunes Music Library.xml";
     
     return location;
 }
@@ -109,18 +116,31 @@
 #pragma mark -
 #pragma mark iTunes Module source.
 
+// Referenced "https://github.com/pjrobertson/1Password-Plugin/blob/master/OnePasswordSource.m".
 - (BOOL)indexIsValidFromDate:(NSDate *)indexDate forEntry:(NSDictionary *)theEntry{
+    NSLog(@"indexIsValidFromDate: called\n%@", [ theEntry description ]);
+    
+    return NO;
+    
     if ( [[ theEntry objectForKey:@"name" ] isEqualToString:@"Ratings" ])
-        return YES;
-    else if ( [[ theEntry objectForKey:@"name" ] isEqualToString:@"iTunes Library" ]) {
+        return YES;// isFirstRun/isStartingUp?
+    else if ( [ theEntry objectForKey:@"iTunes item" ]) { //[[ theEntry objectForKey:@"name" ] isEqualToString:@"Songs" ]) {
         // Compare last modified date of iTunes library.
         NSString *location = [ self iTunesLibraryLocation ];
         NSError *err = nil;
-        NSDictionary *xmlAttributes = [[ NSFileManager defaultManager ] attributesOfItemAtPath:location error:&err ];
-        if ( err)
-            return NO;
+        NSFileManager *mgmt = [[ NSFileManager alloc ] init ];
+        NSDictionary *xmlAttributes = [ mgmt attributesOfItemAtPath:location error:&err ]; // retain this?
         
-        return [[ xmlAttributes objectForKey:NSFileModificationDate ] isEqualToString:[ theEntry objectForKey:NSFileModificationDate ]];
+        if ( err) {
+            [ mgmt release ];
+            return NO;
+        }
+        
+        NSDate *modificationDate = [ xmlAttributes objectForKey:NSFileModificationDate ];
+        Boolean modified = ([ modificationDate compare:indexDate ] == NSOrderedAscending );
+        
+        [ mgmt release ];
+        return modified;
     }
     
     return YES;
@@ -137,47 +157,34 @@
 //}
 
 - (NSArray *) objectsForEntry:(NSDictionary *)theEntry{
-    id notifier = [[QSRegistry sharedInstance] preferredNotifier];
+    NSLog(@"objectsForEntry: called\n%@", [ theEntry description ]);
     
-    if( notifier != nil) {
-        [notifier displayNotificationWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                     @"itunesmodule", QSNotifierText,
-                                                     [ theEntry objectForKey:@"name" ], QSNotifierTitle,
-                                                     NULL, QSNotifierIcon,
-                                                     nil]];
-        return;
-    }
+    NSArray *objects = nil;
+    NSString *name = [ theEntry objectForKey:@"name" ];
     
-    
-    NSArray *objects;
-    
-    if ( [[ theEntry objectForKey:@"name" ] isEqualToString:@"Ratings" ]) {
+    /*if ( [[ theEntry objectForKey:@"name" ] isEqualToString:@"iTunes" ])
+        return [ theEntry objectForKey:@"children" ];
+    else*/
+    if ([ name isEqualToString:@"Ratings" ]) {
         objects = [ self ratings ];
     }
-    else if ( [[ theEntry objectForKey:@"name" ] isEqualToString:@"iTunes Library" ]) {
+    else if ([ name isEqualToString:@"Songs" ]) {
+        NSLog(@"in Songs");
         NSString *location = [ self iTunesLibraryLocation ];
-    
-        // Get last modified date of iTunes library.
-        NSError *err = nil;
-        NSDictionary *xmlAttributes = [[ NSFileManager defaultManager ] attributesOfItemAtPath:location error:&err ];
-        if ( err) {
-            [ theEntry setValue:@"Error retrieving last modified date of iTunes library." forKey:NSFileModificationDate ];// Can i do this???
-        }
-        else {
-            [ theEntry setValue:[ xmlAttributes objectForKey:NSFileModificationDate ] forKey:NSFileModificationDate ];// Can i do this???
-        }
+        NSLog(@"%@", location);
 
-        objects = [ self iTunesLibraryWithLocation:location ];
+        objects = [ self iTunesSongsWithLocation:location ];
     }
   
     return objects;
 }
 
 - (BOOL)objectHasChildren:(QSObject *)object {
-    return YES;
+    return NO;
 }
 
 - (NSArray *)validIndirectObjectsForAction:(NSString *)action directObject:(QSObject *)dObject {
+    NSLog(@"validIndirectObjectsForAction: %@", action);
     if ([ action isEqualToString:@"Rate Song" ])
         //add text input //[QSObject textProxyObjectWithDefaultValue:@""]
         return [ QSLib scoredArrayForString:nil inSet:[ QSLib arrayForType:iTunesModuleRating ]];
