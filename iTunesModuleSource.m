@@ -19,7 +19,7 @@
     NSMutableArray *objects = [ NSMutableArray arrayWithCapacity:5 ];
     
     QSObject *object = [ QSObject objectWithName:@"5 Stars" ];
-    [ object setObject:[ NSNumber numberWithInt:5 ] forType:iTunesModuleRating ];
+    [ object setObject:[ NSNumber numberWithInt:100 ] forType:iTunesModuleRating ];
     //[ object setEnabled ];??
     //[[ QSLibrarian sharedInstance ] setItem:object isOmitted:YES ];
     
@@ -29,25 +29,25 @@
     [ objects addObject:object ];
     
     object = [ QSObject objectWithName:@"4 Stars" ];
-    [ object setObject:[ NSNumber numberWithInt:4 ] forType:iTunesModuleRating ];
+    [ object setObject:[ NSNumber numberWithInt:80 ] forType:iTunesModuleRating ];
     // set identifier?
     // [ object setIcon:[ QSResourceManager imageNamed:@"" ]];
     [ objects addObject:object ];
     
     object = [ QSObject objectWithName:@"3 Stars" ];
-    [ object setObject:[ NSNumber numberWithInt:3 ] forType:iTunesModuleRating ];
+    [ object setObject:[ NSNumber numberWithInt:60 ] forType:iTunesModuleRating ];
     // set identifier?
     // [ object setIcon:[ QSResourceManager imageNamed:@"" ]];
     [ objects addObject:object ];
     
     object = [ QSObject objectWithName:@"2 Stars" ];
-    [ object setObject:[ NSNumber numberWithInt:2 ] forType:iTunesModuleRating ];
+    [ object setObject:[ NSNumber numberWithInt:40 ] forType:iTunesModuleRating ];
     // set identifier?
     // [ object setIcon:[ QSResourceManager imageNamed:@"" ]];
     [ objects addObject:object ];
     
     object = [ QSObject objectWithName:@"1 Star" ];
-    [ object setObject:[ NSNumber numberWithInt:1 ] forType:iTunesModuleRating ];
+    [ object setObject:[ NSNumber numberWithInt:20 ] forType:iTunesModuleRating ];
     // set identifier?
     // [ object setIcon:[ QSResourceManager imageNamed:@"" ]];
     [ objects addObject:object ];
@@ -118,7 +118,7 @@
 
 // Referenced "https://github.com/pjrobertson/1Password-Plugin/blob/master/OnePasswordSource.m".
 - (BOOL)indexIsValidFromDate:(NSDate *)indexDate forEntry:(NSDictionary *)theEntry{
-    NSLog(@"indexIsValidFromDate: called\n%@", [ theEntry description ]);
+    // NSLog(@"indexIsValidFromDate: called\n%@", [ theEntry description ]);
     
     return NO;
     
@@ -157,7 +157,7 @@
 //}
 
 - (NSArray *) objectsForEntry:(NSDictionary *)theEntry{
-    NSLog(@"objectsForEntry: called\n%@", [ theEntry description ]);
+    // NSLog(@"objectsForEntry: called\n%@", [ theEntry description ]);
     
     NSArray *objects = nil;
     NSString *name = [ theEntry objectForKey:@"name" ];
@@ -169,9 +169,9 @@
         objects = [ self ratings ];
     }
     else if ([ name isEqualToString:@"Songs" ]) {
-        NSLog(@"in Songs");
+        // NSLog(@"in Songs");
         NSString *location = [ self iTunesLibraryLocation ];
-        NSLog(@"%@", location);
+        // NSLog(@"%@", location);
 
         objects = [ self iTunesSongsWithLocation:location ];
     }
@@ -181,15 +181,6 @@
 
 - (BOOL)objectHasChildren:(QSObject *)object {
     return NO;
-}
-
-- (NSArray *)validIndirectObjectsForAction:(NSString *)action directObject:(QSObject *)dObject {
-    NSLog(@"validIndirectObjectsForAction: %@", action);
-    if ([ action isEqualToString:@"Rate Song" ])
-        //add text input //[QSObject textProxyObjectWithDefaultValue:@""]
-        return [ QSLib scoredArrayForString:nil inSet:[ QSLib arrayForType:iTunesModuleRating ]];
-    
-    return nil;
 }
 
 // Object Handler Methods

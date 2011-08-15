@@ -63,7 +63,7 @@
 			<key>actionClass</key>
 			<string>iTunesModuleAction</string>
 			<key>actionSelector</key>
-			<string>rateSong:</string>
+			<string>rateSong:withRating:</string>
 			<key>directTypes</key>
 			<array>
 				<string>iTunesModuleSong</string>
@@ -76,7 +76,7 @@
 				<string>NSStringPboardType</string>
 			</array>
 			<key>name</key>
-			<string>Rate Song</string>
+			<string>Rate Song...</string>
 			<key>validatesObjects</key>
 			<false/>
 		</dict>
@@ -105,72 +105,72 @@
 			<key>children</key>
 			<array>
 				<dict>
-					<key>iTunes item</key>
-					<true/>
 					<key>enabled</key>
 					<true/>
 					<key>ID</key>
 					<string>iTunesModulePlaylist</string>
+					<key>iTunes item</key>
+					<true/>
 					<key>name</key>
 					<string>Songs</string>
 					<key>source</key>
 					<string>iTunesModuleSource</string>
 				</dict>
 				<dict>
-					<key>iTunes item</key>
-					<true/>
 					<key>enabled</key>
 					<true/>
 					<key>ID</key>
 					<string>iTunesModuleArtist</string>
+					<key>iTunes item</key>
+					<true/>
 					<key>name</key>
 					<string>Artists</string>
 					<key>source</key>
 					<string>iTunesModuleSource</string>
 				</dict>
 				<dict>
-					<key>iTunes item</key>
-					<true/>
 					<key>enabled</key>
 					<true/>
 					<key>ID</key>
 					<string>iTunesModuleAlbum</string>
+					<key>iTunes item</key>
+					<true/>
 					<key>name</key>
 					<string>Albums</string>
 					<key>source</key>
 					<string>iTunesModuleSource</string>
 				</dict>
 				<dict>
-					<key>iTunes item</key>
-					<true/>
 					<key>enabled</key>
 					<false/>
 					<key>ID</key>
 					<string>iTunesModuleGenre</string>
+					<key>iTunes item</key>
+					<true/>
 					<key>name</key>
 					<string>Genres</string>
 					<key>source</key>
 					<string>iTunesModuleSource</string>
 				</dict>
 				<dict>
-					<key>iTunes item</key>
-					<true/>
 					<key>enabled</key>
 					<true/>
 					<key>ID</key>
 					<string>iTunesModulePlaylist</string>
+					<key>iTunes item</key>
+					<true/>
 					<key>name</key>
 					<string>Playlists</string>
 					<key>source</key>
 					<string>iTunesModuleSource</string>
 				</dict>
 				<dict>
-					<key>iTunes item</key>
-					<true/>
 					<key>enabled</key>
 					<true/>
 					<key>ID</key>
 					<string>iTunesModuleRating</string>
+					<key>iTunes item</key>
+					<true/>
 					<key>name</key>
 					<string>Ratings</string>
 					<key>source</key>
